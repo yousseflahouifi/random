@@ -22,6 +22,9 @@ site:*.tagret.com -www ...
 ssl.cert.subject.cn:"domain" 200 ==> facet and filter based in title
 ssl:"orgname" 200 => facet and filter based in title
 
+asn:"AS<num>" 200
+net:<netrange> 200
+
 ```
 ### urls
 
