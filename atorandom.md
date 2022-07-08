@@ -25,3 +25,5 @@ email=victim@mail.com|hacker@mail.com
 
 ```
 
+### Oauth
+
