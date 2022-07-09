@@ -24,6 +24,16 @@ Old versions may be still be in use and be more vulnerable than latest endpoints
 /api/CharityEventFeb2021/user/pp/<ID>
 ```
 
+### Check Access
+```
+Usually some API endpoints are going to need more privileges than others. Always try to access the more privileged endpoints from less privileged (unauthorized) by guessing or analysing js files accounts to see if it's possible.
+```
+
+### CORS
+```
+Always check the CORS configuration of the API, as if its allowing to end request with the credentials from the attacker domain, a lot of damage can be done via CSRF from authenticated victims.
+```
+
 ### Request content-type
 
 ```
