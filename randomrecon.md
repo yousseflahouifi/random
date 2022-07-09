@@ -25,6 +25,8 @@ ssl:"orgname" 200 => facet and filter based in title
 asn:"AS<num>" 200
 net:<netrange> 200
 
+HTTP ASN:<here> -port:80,443,8080 // Web servers on non-standard ports (Shodan)
+
 ```
 ### urls
 
@@ -72,4 +74,7 @@ https://hackertarget.com/as-ip-lookup/
 
 ```
 ffuf -w list.txt -u http://hn/FUZZ
+
+ffuf -c -w ./wordlist.txt -u https://target/FUZZ -replay-proxy http://localhost:8080
+ffuf -c -w ./wordlist.txt -u https://target/FUZZ -x http://localhost:8080
 ```
