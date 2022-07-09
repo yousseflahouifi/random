@@ -35,6 +35,13 @@ email=victim@mail.com%0A%0Dbcc:hacker@mail.com
 
 - account settings , change email
 
+
+```
+
+### sensitive data leak using .json extension.
+
+```
+GET /ResetPassword HTTP/1.1 -> GET /ResetPassword.json HTTP/1.1 # might leak the token
 ```
 
 ### Oauth
