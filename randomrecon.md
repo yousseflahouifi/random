@@ -16,7 +16,7 @@ https://hackertarget.com/find-shared-dns-servers/
 ```
 ### search engines
 ```
-site:*.target.com
+site:*.target.com //see Google cache
 https://crt.sh/?O=orgname
 site:*.tagret.com -www ...
 ssl.cert.subject.cn:"domain" 200 ==> facet and filter based in title
@@ -77,4 +77,57 @@ ffuf -w list.txt -u http://hn/FUZZ
 
 ffuf -c -w ./wordlist.txt -u https://target/FUZZ -replay-proxy http://localhost:8080
 ffuf -c -w ./wordlist.txt -u https://target/FUZZ -x http://localhost:8080
+```
+
+### file backups
+
+```
+Append .old or .bak to files
+
+look for backups of all the executable files , Common variations for naming a backup are :  file.ext~, #file.ext#, ~file.ext, file.ext.bak, file.ext.tmp, file.ext.old, file.bak, file.tmp and file.old
+
+bfac single url : bfac --url http://example.com/test.php
+bfac list of urls : bfac --list testing_list.txt
+
+```
+
+### forgotten dbs dumps
+
+```
+/back.sql
+/backup.sql
+/accounts.sql
+/backups.sql
+/clients.sql
+/customers.sql
+/data.sql
+/database.sql
+/database.sqlite
+/users.sql
+/db.sql
+/db.sqlite
+/db_backup.sql
+/dbase.sql
+/dbdump.sql
+setup.sql
+sqldump.sql
+/dump.sql
+/mysql.sql
+/sql.sql
+/temp.sql
+```
+
+
+## fingerprinting
+
+```
+Find Spring Boot servers : org:YOUR_TARGET http.favicon.hash:116323821
+check for exposed actuators. If /env is available, you can probably achieve RCE. If /heapdump is accessible, you may find private keys and tokens
+
+Find RocketMQ consoles : org:target.com http.title:rocketmq-console
+we can for example find out: Additional hostnames and subdomains , Internal IP addresses, Log file locations ,Version details
+
+find k8s : org:"target" product:"Kubernetes"
+org:"target" port:"10250"
+
 ```
