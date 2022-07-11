@@ -64,6 +64,7 @@ Repeat the process changing the password instead of logging out.
 
 - consider registration when password reset and vice versa
 
+- IDN homograph ?
 ```
 
 ### sensitive data leak using .json extension.
