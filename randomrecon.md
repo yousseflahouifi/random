@@ -118,6 +118,19 @@ sqldump.sql
 ```
 
 
+## Bypass regular login tricks
+```
+- Check for comments inside the page
+- Check if you can directly access the restricted pages (dorks,bf,wayback...)
+- Check to not send the parameters (do not send any or only 1)
+- Check the PHP comparisons error: user[]=a&pwd=b , user=a&pwd[]=b , user[]=a&pwd[]=b
+- check Default credentials 
+- sql injection
+
+
+```
+
+
 ## fingerprinting
 
 ```
