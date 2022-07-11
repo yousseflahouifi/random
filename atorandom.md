@@ -60,6 +60,10 @@ email=victim@mail.com%0A%0Dbcc:hacker@mail.com
 Therefore, grab the cookies while the user is logged in, log out, and check if the cookies are still valid.
 Repeat the process changing the password instead of logging out.
 
+- when registering try to use victim's email , email with spaces (before ane after)
+
+- consider registration when password reset and vice versa
+
 ```
 
 ### sensitive data leak using .json extension.
