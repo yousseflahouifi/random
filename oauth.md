@@ -219,6 +219,14 @@ http://example.com/token/callback/%2e%2e/%2e%2e/our/path
 
 - subdomain ? tld suffix ?
 
+- if subdomains are accepted in redirect url try :
+http://example.com%2f%2f.victim.com
+http://example.com%5c%5c.victim.com
+http://example.com%3F.victim.com
+http://example.com%23.victim.com
+http://victim.com:80%40example.com
+http://victim.com%2eexample.com
+
 
 ```
 
