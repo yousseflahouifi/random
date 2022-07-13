@@ -207,7 +207,7 @@ between application configuration and the actual one provided this is exploitabl
 
 ### Oauth redirection bypass
 ```
-- Directory traversal trick , assume that we can save certain files of our choice under the allowed domain: 
+-(server) Directory traversal trick , assume that we can save certain files of our choice under the allowed domain: 
 
 http://example.com/token/callback/../../our/path
 http://example.com/token/callback/.%0a./.%0d./our/path
