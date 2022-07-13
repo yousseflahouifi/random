@@ -16,6 +16,7 @@ https://hackertarget.com/find-shared-dns-servers/
 ```
 ### search engines
 ```
+https://searx.be/search 
 site:*.target.com //see Google cache
 https://crt.sh/?O=orgname
 site:*.tagret.com -www ...
