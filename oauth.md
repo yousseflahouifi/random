@@ -227,13 +227,23 @@ http://example.com%23.victim.com
 http://victim.com:80%40example.com
 http://victim.com%2eexample.com
 
+```
+
+## Other stuff to try
+
+```
 - check state parameter, doest the check happens ? :
 this happen when there's a functionality like adding an account through oauth 
 pause right after authorizing. You will then come across a request such as: https://yourtweetreader.com?code=asd91j3jd91j92j1j9d1 
 After you receive this request, you can then drop the request because these codes are typically one-time use.
 You can then send this URL to a logged-in user, and it will add your account to their account.
 
-- brute force client secret ?
+- brute force client secret
+
+- if “Sign in with X” but also username/password authentication is implemented you can try :
+1)If the application does not require email verification on account creation, try creating an account with a victim’s email address and attacker password before the victim has registered. If the victim then tries to register or sign in with a third party, such as Google, it’s possible the application will link their Google account to the attacker created account. This is a “pre account takeover” where an attacker will have access to the victim’s account if they created it prior to the victim registering.
+2) If an OAuth app does not require email verification, try signing up with that OAuth app with a victim’s email address. 
+
 
 ```
 
