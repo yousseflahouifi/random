@@ -239,6 +239,8 @@ After you receive this request, you can then drop the request because these code
 You can then send this URL to a logged-in user, and it will add your account to their account.
 
 - brute force client secret
+- csrf
+- clickjacking to force malicious application instalation
 
 - if “Sign in with X” but also username/password authentication is implemented you can try :
 1)If the application does not require email verification on account creation, try creating an account with a victim’s email address and attacker password before the victim has registered. If the victim then tries to register or sign in with a third party, such as Google, it’s possible the application will link their Google account to the attacker created account. This is a “pre account takeover” where an attacker will have access to the victim’s account if they created it prior to the victim registering.
