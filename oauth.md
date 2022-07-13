@@ -244,6 +244,7 @@ You can then send this URL to a logged-in user, and it will add your account to 
 1)If the application does not require email verification on account creation, try creating an account with a victim’s email address and attacker password before the victim has registered. If the victim then tries to register or sign in with a third party, such as Google, it’s possible the application will link their Google account to the attacker created account. This is a “pre account takeover” where an attacker will have access to the victim’s account if they created it prior to the victim registering.
 2) If an OAuth app does not require email verification, try signing up with that OAuth app with a victim’s email address. 
 
+- these are only some of the more common stuff , there's a lot more to do ....
 
 ```
 
