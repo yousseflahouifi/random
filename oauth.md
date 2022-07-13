@@ -177,3 +177,48 @@ this token.
 
 
 ## Exploiting Oauth
+### Token hijacking (client):
+
+```
+If you are building an OAuth client,  
+Thou shall register a redirect_uri as much as specific as you can or simply less formally
+"The registered redirect_uri must be as specific as it can be".
+
+DO register https://yourouauthclient.com/oauth/oauthprovider/callback 
+NOT JUST https://yourouauthclient.com/ or https://yourouauthclient.com/oauth
+
+if the oauth provider adopts an allowing subdirectory validation strategy, this could be exploited
+
+In order to exploit this issue an attacker (me in this case) can create a public post ,link or something that can trigger an http request at https://yourouauthclient.com/profile/post , to https://Attacker.com/ leaked the token in the referer header
+
+
+```
+
+### Token hijacking (server):
+
+```
+be aware of the inherent risks involved in using 
+redirect_uri in a grant situation where it can be made to redirect to a different 
+location than the one allowed, thereby hijacking the access tokens
+
+if the authorization server doesn't reject redirect_uri mismatches 
+between application configuration and the actual one provided this is exploitable and we can steal the token by providing our attacker url .
+```
+
+### Oauth redirection bypass
+```
+- Directory traversal trick , assume that we can save certain files of our choice under the allowed domain: 
+
+http://example.com/token/callback/../../our/path
+http://example.com/token/callback/.%0a./.%0d./our/path
+http://example.com/token/callback/%252e%252e/%252e%252e/our/path
+/our/path///../../http://example.com/token/callback/
+http://example.com/token/callback/%2e%2e/%2e%2e/our/path
+
+- try homograph attack
+
+- subdomain ? tld suffix ?
+
+
+```
+
