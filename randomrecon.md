@@ -187,5 +187,18 @@ org:"target" port:"10250"
 ### js files
 
 ```
+# gathering js files
+burpsuite > show only js > copy urls
+gau <domain> | grep "\.js" | uniq | sort > js_files_url_list.txt
+# gau or wayback might result in false positive , so we can use curl to quickly check for the status of the JavaScript files on the server
+cat js_files_url_list.txt | parallel -j50 -q curl -w 'Status:%{http_code}\t Size:%{size_download}\t %{url_effective}\n' -o /dev/null -sk
+or
+cat js_files_url_list.txt | hakcheckurl # much more efficient
+
+
+# Identifying full URLs, relative paths in JavaScript files
+
 python linkfinder.py -i https://example.com/1.js -o cli
+
+
 ```
