@@ -183,3 +183,9 @@ find k8s : org:"target" product:"Kubernetes"
 org:"target" port:"10250"
 
 ```
+
+### js files
+
+```
+python linkfinder.py -i https://example.com/1.js -o cli
+```
