@@ -168,6 +168,9 @@ Cluster-Client-IP: 127.0.0.1
 X-ProxyUser-Ip: 127.0.0.1
 Host: localhost
   
+ 
+ - Change the HTTP protocol version to 1.0.
+ - do not put Host in the header ,if server isnt configured properly it puts the destination address itself in the header , this makes us local
 ```
 
 ## fingerprinting
