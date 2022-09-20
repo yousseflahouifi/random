@@ -185,6 +185,8 @@ we can for example find out: Additional hostnames and subdomains , Internal IP a
 find k8s : org:"target" product:"Kubernetes"
 org:"target" port:"10250"
 
+find jenkins servers using criminalip : favicon: 4dce888 or title: x-jenkins or X_Hudson X_Jenkins 200
+
 ```
 
 ### js files
