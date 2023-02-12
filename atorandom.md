@@ -65,6 +65,8 @@ Repeat the process changing the password instead of logging out.
 - consider registration when password reset and vice versa
 
 - IDN homograph ?
+
+- what if a link which was meant to be clicked by a user to update something is clicked by another user ? is it going to update the victim's details ? (update email,add emails)
 ```
 
 ### sensitive data leak using .json extension.
