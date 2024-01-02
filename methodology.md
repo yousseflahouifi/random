@@ -55,6 +55,22 @@ cat $1/urls.txt | grep "=" | grep -Ev "\.(js|css|txt|pdf|png|svg|gif|jpeg|jpg|ic
 
 9- Javascript
 ```
+gau <domain> | grep "\.js" | uniq | sort > js_files_url_list.txt
+# gau or wayback might result in false positive , so we can use curl to quickly check for the status of the JavaScript files on the server
+cat js_files_url_list.txt | parallel -j50 -q curl -w 'Status:%{http_code}\t Size:%{size_download}\t %{url_effective}\n' -o /dev/null -sk
+or
+cat js_files_url_list.txt | hakcheckurl # much more efficient
+
+can use meg on gau's output js
+meg --verbose --savestatus 200 "#"
+
+use gf to find keys,urls,password,source,sinks
+gf s3-buckets
+
+
+# Identifying full URLs, relative paths in JavaScript files
+
+python linkfinder.py -i https://example.com/1.js -o cli
 
 ```
 10- dorks
@@ -65,6 +81,29 @@ look for registration pages , login forums where there are functinalities to hun
 
 ```
 
+```
+for each live server crawl , brute force , github endpoint , wybackurls
+```
 
 #### I-2) All assets
+
+```
+find root domains and for each root domain , use the stuff listed in subdomain .
+
+find ips .
+
+assets in cloud and extract organization name and cn name then do the previous.
+
+autonomous system and extract domains and orgn name from ssl certs and copyright(dorks) stuff as well
+
+port scan
+
+dnnsdumpster
+shodan , censys , cip
+reverse dns lookup , reverse mx lookup , reverse whois lookup
+reverse whois
+
+
+```
+
 ### II) Small scope
