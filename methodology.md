@@ -107,3 +107,66 @@ reverse whois
 ```
 
 ### II) Small scope
+
+#### signup functionality
+
+```
+**Duplicate registration / Overwrite existing user.**
+
+- Create first account in application with email say abc@gmail.com and password.
+- Logout of the account and create another account with same email and different password.
+- You can even try to change email case in some case like from abc@gmail.com to Abc@gmail.com or <space>abc@gmail.com...
+- Finish the creation process — and see that it succeeds
+- Now go back and try to login with email and the new password. You are successfully logged in.
+
+**DOS at Name/Password field in Signup Page**
+
+very long string (100000 characters) can cause a denial a service on the server. This may lead to the website becoming unavailable or unresponsive. Usually this problem is caused by a vulnerable string hashing implementation. When a long string is sent, the string hashing process will result in CPU and memory exhaustion.
+
+- Go Sign up form.
+- Fill the form and enter a long string in password
+- Click on enter and you’ll get 500 Internal Server error if it is vulnerable.
+if debug mode is enabled you might end up finding leaks api keys , creds etc.. 
+(you can use this in reset password too or any other similar case that involve calculation of hash...)
+
+**XSS in username , email , password fiels **
+- Payload for Username field : <svg/onload=confirm(1)>
+- Payload for Email field : “><svg/onload=confirm(1)>”@x.y
+
+**No rate limit in the sign up functionality **
+if there is no rate limiting on signup page a malicious users can generate hundreds and thousands of fake accounts that lead to fill the application DataBase with fake accounts
+
+you can use burp intruder or build a script to test this issue
+
+- Capture the signup request and send it to Intruder.
+- Add different emails as payload .
+- Fire up Intruder, And check whether it returns 200 OK.
+
+** Insufficient Email Verification **
+Forced Browsing. (directly navigating to files which comes after verifying the email)
+Response or Status Code Manipulation (302 -> 200 etc...)
+there are so many ways and you can invent yours
+eg
+1- Sing up on the web application as attacker@mail.com
+2-  You will receive a confirmation email on attacker@mail.com, do not open that link now.
+3- The application may ask for confirming your email, check if it allows navigating to account settings page.
+4- On settings page check if you can change the email.
+5- If allowed, change the email to victim@mail.com.
+6- Now you will be asked to confirm victim@mail.com by opening the confirmation link received on victim@mail.com, insted of opening the new link go to attacker@mail.com inbox and open the previous received link.
+7- If the application verifies vitim@mail.com by using perivious verification link received on attacker mail, then this is a email verification bypass. 
+
+**Path overwrite/hijacking**
+If an application allows users to check their profile with direct path /{username} always try to signup with system reserved file names, such as index.php, signup.php, login.php, (or location of js files ...) etc. In some cases what happens here is, when you signup with username: index.php, now upon visiting target.tld/index.php, your profile will comeup and occupy the index.php page of an application. Similarly, if an attacker is able to signup with username login.php, Imagine login page getting takeovered.
+
+```
+#### Session issues
+
+```
+- identify the session cookie and check the domain scope if it's used in subdomains then by finding xss in a subdomain you can hijack session of the user
+- Old Session Does Not Expire After Password Change or after logout
+- are the tokens used predictable ? can we craft one ?
+- check for session fixation i.e. value of session cookie before and after authentication
+- 
+```
+
+
